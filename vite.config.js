@@ -6,4 +6,10 @@ export default defineConfig({
   optimizeDeps: {
     include: ["react-quill"],
   },
+  build: {
+    outDir: "dist",
+  },
+  server: {
+    open: true,
+  },
 });
