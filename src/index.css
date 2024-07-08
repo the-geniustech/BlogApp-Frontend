@@ -99,7 +99,7 @@
   ); /*Tailwind gray-200*/
   border: none !important;
   position: sticky;
-  top: 0;
+  top: -1px;
   z-index: 10;
   width: 100% !important;
 }

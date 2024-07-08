@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import Cookies from "js-cookie";
 import { logout as logoutApi } from "../../services/apiAuth";
-import { setIsAuth } from "./authSlice";
+import { setCurrentUser, setIsAuth } from "./authSlice";
 
 export function useLogout() {
   const navigate = useNavigate();
@@ -17,6 +17,7 @@ export function useLogout() {
       queryClient.removeQueries("user");
       Cookies.remove("authToken");
       dispatch(setIsAuth(false));
+      dispatch(setCurrentUser({}));
       navigate("/", { replace: true });
     },
 

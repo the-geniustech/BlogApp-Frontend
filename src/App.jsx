@@ -6,7 +6,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import store from "./store";
 import Login from "./pages/Login";
 // import PageNotFound from "./pages/PageNotFound";
-// import AppLayout from "./ui/AppLayout";
+import AppLayout from "./ui/AppLayout";
 import Home from "./pages/Home";
 import NewsDetails from "./pages/NewsDetails";
 import { Toaster } from "react-hot-toast";
@@ -16,7 +16,7 @@ import CreateNews from "./pages/CreateNews";
 import AccountSettings from "./pages/AccountSettings";
 // import { useUser } from "./features/authentication/useUser";
 // import Spinner from "./ui/Spinner";
-import ProtectedRoute from "./ui/ProtectedRoute";
+// import ProtectedRoute from "./ui/ProtectedRoute";
 import EditPost from "./pages/EditPost";
 import Dashboard from "./pages/Dashboard";
 
@@ -36,7 +36,7 @@ function App() {
 
         <BrowserRouter>
           <Routes>
-            <Route element={<ProtectedRoute />}>
+            <Route element={<AppLayout />}>
               <Route index element={<Home />} />
               <Route path="/" element={<Home />} />
               <Route path="newsdetails/:id" element={<NewsDetails />} />
