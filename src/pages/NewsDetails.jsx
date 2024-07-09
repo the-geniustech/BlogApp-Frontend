@@ -1,36 +1,21 @@
 import { Link, useParams } from "react-router-dom";
-// import equal from "deep-equal";
 import { useNewsDetails } from "../features/news/useNewsDetails";
 import { formatDate } from "../utils/helpers";
 import Spinner from "../ui/Spinner";
 import ButtonGroup from "../ui/ButtonGroup";
-import { useUser } from "../features/authentication/useUser";
 
 import ConfirmDeleteModal from "../ui/ConfirmDeleteModal";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
 const NewsDetails = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const trigger = useRef(null);
   const { id } = useParams();
-  // const { isLoadingUser, user } = useUser();
   const { currentUser: user } = useSelector((state) => state.auth);
   const { isLoading, newsDetails } = useNewsDetails(id);
 
-  // useEffect(
-  //   () =>
-  //     console.log(
-  //       newsDetails,
-  //       `there is newsDATA: ${!newsDetails}`,
-  //       `there is ID: ${!id}`,
-  //       `isloading news: ${isLoading}`,
-  //       `isLoadingUser user: ${isLoadingUser}`
-  //     ),
-  //   [id, isLoading, isLoadingUser, newsDetails]
-  // );
-
-  if (isLoading && !newsDetails) return <Spinner />;
+  if (isLoading) return <Spinner />;
 
   return (
     <section className="flex justify-center bg-white px-5 py-20 lg:py-[120px]">

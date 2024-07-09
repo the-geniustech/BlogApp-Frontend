@@ -1,9 +1,12 @@
 import DataStats from "../features/authentication/DataStats";
 import { useUser } from "../features/authentication/useUser";
 import NewsContainer from "../features/news/NewsContainer";
+import Spinner from "../ui/Spinner";
 
 function Dashboard() {
   const { isLoadingUser, user } = useUser();
+
+  if (isLoadingUser && !user) return <Spinner />;
 
   return (
     <section className="bg-white mx-auto px-4 pt-20 lg:pt-[120px] pb-10 lg:pb-20">

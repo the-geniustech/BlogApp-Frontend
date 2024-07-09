@@ -10,7 +10,8 @@ export default function NewsContainer({ isLoadingPost, allPostData, userId }) {
 
   if (isLoadingPost && !isLoadingPost) return <Spinner />;
 
-  if (!allPostData?.length) return <h1 className="">No post Yet</h1>;
+  if (!isLoadingPost && !allPostData?.length)
+    return <h1 className="p-20">No post Yet. Start creating your own post</h1>;
 
   return (
     <div className="mx-auto container">

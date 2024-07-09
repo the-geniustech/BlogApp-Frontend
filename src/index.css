@@ -117,7 +117,7 @@
 
 /* Additional custom styles for the quill editor */
 .ql-editor {
-  @apply bg-white py-8 min-h-full; /*Add padding here */
+  @apply bg-white pt-8 pb-12 min-h-full; /*Add padding here */
 }
 
 .ql-snow.ql-toolbar {

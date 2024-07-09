@@ -7,8 +7,9 @@ export function useNewsDetails(id) {
     data: newsDetails,
     error,
   } = useQuery({
-    queryKey: ["newsDetails"],
+    queryKey: ["newsDetails", id],
     queryFn: () => getNewsDetails(id),
+    keepPreviousData: false, // Ensure we don't keep the previous data
   });
 
   return { isLoading, error, newsDetails };
