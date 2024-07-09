@@ -5,6 +5,8 @@ import { useUpdateUser } from "./useUpdateUser";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../../ui/Spinner";
 import { useForm } from "react-hook-form";
+import { FaInfoCircle, FaUser } from "react-icons/fa";
+import SpinnerMini from "../../ui/SpinnerMini";
 
 function UpdateUserDataForm() {
   const navigate = useNavigate();
@@ -110,26 +112,31 @@ function UpdateUserDataForm() {
             >
               Full Name
             </label>
-            <input
-              type="text"
-              id="first-name"
-              defaultValue={name}
-              {...register("name", {
-                required: "This field is required",
-                pattern: {
-                  value: /^[a-zA-Z\s]+$/,
-                  message: "Name should only contain alphabetic characters",
-                },
-                minLength: {
-                  value: 2,
-                  message: "A name must be at least 2 characters long",
-                },
-              })}
-              placeholder={name}
-              // onChange={(e) => setName(e.target.value)}
-              disabled={isUpdatingUser}
-              className="border-stroke focus:border-primary dark-to-be-deleted:border-dark-3 bg-transparent px-5 border rounded-md w-full h-[46px] text-base text-dark dark-to-be-deleted:text-white outline-none"
-            />
+            <div className="relative">
+              <input
+                type="text"
+                id="first-name"
+                defaultValue={name}
+                {...register("name", {
+                  required: "This field is required",
+                  pattern: {
+                    value: /^[a-zA-Z\s]+$/,
+                    message: "Name should only contain alphabetic characters",
+                  },
+                  minLength: {
+                    value: 2,
+                    message: "A name must be at least 2 characters long",
+                  },
+                })}
+                placeholder={name}
+                // onChange={(e) => setName(e.target.value)}
+                disabled={isUpdatingUser}
+                className="border-stroke focus:border-primary dark-to-be-deleted:border-dark-3 bg-transparent px-5 border rounded-md w-full h-[46px] text-base text-dark dark-to-be-deleted:text-white outline-none"
+              />
+              <div className="right-0 absolute inset-y-0 flex items-center pr-3 text-gray-500">
+                <FaUser className="" />
+              </div>
+            </div>
             {errors?.name?.message && (
               <p className="bg-red-100 mt-2 p-2 rounded-md text-red-700 text-xs">
                 {errors?.name?.message}
@@ -143,20 +150,25 @@ function UpdateUserDataForm() {
             >
               Bio
             </label>
-            <input
-              type="text"
-              id="last-name"
-              defaultValue={about}
-              {...register("about", {
-                maxLength: {
-                  value: 50,
-                  message: "Bio should not be more than 50 characters",
-                },
-              })}
-              placeholder={about}
-              // onChange={(e) => setAbout(e.target.value)}
-              className="border-stroke focus:border-primary dark-to-be-deleted:border-dark-3 bg-transparent px-5 border rounded-md w-full h-[46px] text-base text-dark dark-to-be-deleted:text-white outline-none"
-            />
+            <div className="relative">
+              <input
+                type="text"
+                id="last-name"
+                defaultValue={about}
+                {...register("about", {
+                  maxLength: {
+                    value: 50,
+                    message: "Bio should not be more than 50 characters",
+                  },
+                })}
+                placeholder={about || "Bio"}
+                // onChange={(e) => setAbout(e.target.value)}
+                className="border-stroke focus:border-primary dark-to-be-deleted:border-dark-3 bg-transparent px-5 border rounded-md w-full h-[46px] text-base text-dark dark-to-be-deleted:text-white outline-none"
+              />
+              <div className="right-0 absolute inset-y-0 flex items-center pr-3 text-gray-500">
+                <FaInfoCircle />
+              </div>
+            </div>
             {errors?.about?.message && (
               <p className="bg-red-100 mt-2 p-2 rounded-md text-red-700 text-xs">
                 {errors?.about?.message}
@@ -165,8 +177,8 @@ function UpdateUserDataForm() {
           </div>
 
           <div>
-            <button className="flex justify-center items-center bg-primary hover:bg-blue-dark rounded-md w-full h-[50px] font-medium text-base text-white">
-              Update Now
+            <button className="flex justify-center items-center gap-10 bg-primary hover:bg-blue-dark rounded-md w-full h-[50px] font-medium text-base text-white">
+              {isLoadingUser && <SpinnerMini />} Update Now
             </button>
           </div>
         </form>
