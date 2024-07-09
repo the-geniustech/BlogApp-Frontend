@@ -8,12 +8,12 @@ function AuthHeaderMenu() {
 
   return (
     <ul className="flex gap-1">
-      <li>
+      <li className="bg-white">
         <ButtonIcon onClick={() => navigate("/account")}>
           <HiOutlineUser />
         </ButtonIcon>
       </li>
-      <li>
+      <li className="bg-white">
         <Logout />
       </li>
     </ul>

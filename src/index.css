@@ -59,6 +59,13 @@
   transform: rotate(135deg);
 }
 
+.company__logo-text {
+  background: -webkit-linear-gradient(45deg, #09009f, #016139 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .companies-logos {
   display: flex;
   justify-content: space-around;
@@ -117,7 +124,7 @@
 
 /* Additional custom styles for the quill editor */
 .ql-editor {
-  @apply bg-white pt-8 pb-12 min-h-full; /*Add padding here */
+  @apply bg-white p-8 sm:pb-8 pb-16 min-h-full; /*Add padding here */
 }
 
 .ql-snow.ql-toolbar {

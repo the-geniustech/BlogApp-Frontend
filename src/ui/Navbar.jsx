@@ -6,7 +6,6 @@ import AuthHeaderMenu from "./AuthHeaderMenu";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  // const { isAuth } = useSelector((state) => state.auth);
   const { isAuth, currentUser } = useSelector((state) => state.auth);
 
   return (
@@ -17,14 +16,14 @@ const Navbar = () => {
             onClick={() => setOpen(!open)}
             className={` ${
               open && "navbarTogglerActive"
-            }    rounded-lg px-3  ring-primary focus:ring-2 lg:hidden`}
+            }    rounded-lg px-3 bg-white  ring-primary focus:ring-2 lg:hidden`}
           >
             <span className="block relative bg-primary-dark my-[6px] w-6 h-[2px] [30px]"></span>
             <span className="block relative bg-primary-dark my-[6px] w-6 h-[2px] [30px]"></span>
             <span className="block relative bg-primary-dark my-[6px] w-6 h-[2px] [30px]"></span>
           </button>
           <Link to="/" className="block px-2 py-5">
-            <span className="flex flex-col w-full">
+            <span className="flex flex-col w-full font-black company__logo-text">
               <span className="-mb-2">ATBStudents&lsquo;</span>
               <span className="self-end">Tech-Talk</span>
             </span>
@@ -37,17 +36,27 @@ const Navbar = () => {
           } `}
         >
           <ul className="block lg:flex gap-3">
-            <ListItem NavLink="/">Home</ListItem>
+            <ListItem NavLink="/" onClick={() => setOpen(!open)}>
+              Home
+            </ListItem>
             {isAuth && <ListItem NavLink="dashboard">Dashboard</ListItem>}
             {open && (
               <>
                 {!isAuth && (
-                  <ListItem mobileOnly={true} NavLink="/login">
+                  <ListItem
+                    mobileOnly={true}
+                    NavLink="/login"
+                    onClick={() => setOpen(!open)}
+                  >
                     Login
                   </ListItem>
                 )}
                 {isAuth && (
-                  <ListItem mobileOnly={true} NavLink="/createpost">
+                  <ListItem
+                    mobileOnly={true}
+                    NavLink="/createpost"
+                    onClick={() => setOpen(!open)}
+                  >
                     Create Post
                   </ListItem>
                 )}
@@ -100,9 +109,9 @@ const MainNavbarMenu = ({ children, isAuth }) => {
   );
 };
 
-const ListItem = ({ children, NavLink, mobileOnly }) => {
+const ListItem = ({ children, NavLink, mobileOnly, onClick }) => {
   return (
-    <li>
+    <li onClick={onClick}>
       <Link
         to={NavLink}
         className={`${

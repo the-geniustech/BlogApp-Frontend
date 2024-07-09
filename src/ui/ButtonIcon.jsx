@@ -3,7 +3,7 @@ import React from "react";
 function ButtonIcon({ children, ...props }) {
   return (
     <button
-      className="hover:bg-gray-100 bg-none p-1.5 border-none rounded w- transition-all duration-200"
+      className="bg-white hover:bg-gray-100 p-1.5 border-none rounded w- transition-all duration-200"
       {...props}
     >
       {React.cloneElement(children, {

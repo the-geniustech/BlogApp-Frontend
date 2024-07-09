@@ -5,7 +5,7 @@ import LoginForm from "../features/authentication/LoginForm";
 
 const Login = () => {
   return (
-    <section className="px-4 py-20 lg:py-[120px] h-screen">
+    <section className="px-4 pt-24 lg:pt-[120px] pb-10 lg:pb-20 h-screen">
       <Navbar />
       <div className="relative border-gray-100 bg-white shadow-xl mx-auto px-10 sm:px-12 md:px-[60px] py-16 border rounded-lg max-w-[525px] text-center overflow-hidden">
         <div className="mb-10 md:mb-16 text-center">

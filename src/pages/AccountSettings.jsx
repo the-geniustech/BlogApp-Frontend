@@ -25,7 +25,7 @@ const AccountSettings = () => {
   }
 
   return (
-    <section className="bg-white mx-auto px-4 pt-20 lg:pt-[120px] pb-10 lg:pb-20">
+    <section className="bg-white mx-auto px-4 pt-24 lg:pt-[120px] pb-10 lg:pb-20">
       <div className="mx-auto container">
         <div className="border-stroke dark-to-be-deleted:border-dark-3 mb-10 pb-[22px] border-b">
           <h2 className="mb-2 font-semibold text-2xl text-dark dark-to-be-deleted:text-white">

@@ -18,7 +18,7 @@ const NewsDetails = () => {
   if (isLoading) return <Spinner />;
 
   return (
-    <section className="flex justify-center bg-white px-5 py-20 lg:py-[120px]">
+    <section className="flex justify-center bg-white px-5 pt-24 lg:pt-[120px] pb-10 lg:pb-20">
       <div className="container">
         {newsDetails.coverImage?.url && (
           <div className="pb-10">

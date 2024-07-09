@@ -5,7 +5,7 @@ import SignupForm from "../features/authentication/SignupForm";
 
 const Signup = () => {
   return (
-    <section className="px-4 py-20 lg:py-[120px] h-screen">
+    <section className="px-4 pt-24 lg:pt-[120px] pb-12 lg:pb-20 h-screen">
       <Navbar />
 
       <div className="mx-auto container">
